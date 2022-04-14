@@ -8,6 +8,10 @@
     </router-link>
     <div class="title">
       <h1>Welcome to your own personal Pokedex</h1>
+      
+    </div>
+    <div class = title>
+      <h3>With guess the Pokemon game</h3>
     </div>
     <div>
       
@@ -16,16 +20,14 @@
   <div class="content">
     <router-view />
   </div>
-  <div class="footer">
-    <div class = "footer1">
-      <router-link to="/guess" class = footer1>Guess Pokemon</router-link>
-      <router-link to="/admin" class = footer1>Add/Delete Pokemon</router-link>
-      
-    </div>
-    
-    <p></p>
-    <a href="https://github.com/BYUCS260/museum-jacoblfrandsen">Github Repository</a> 
+  <div class = footer>
+        <router-link to="/guess" class = footer1>Guess Pokemon </router-link>
+        <br>
+        <router-link to="/admin" class = footer1>Add/Delete Pokemon</router-link>
+        <br>
+        <a href="https://github.com/jacoblfrandsen/pokedex.git">Github Repository</a> 
   </div>
+  
 </div>
 </template>
 
@@ -73,7 +75,7 @@ body {
 .footer {
   display: flex;
   flex-direction: column;
-  height: 100px;
+  height: 150px;
   padding: 50px 100px 0px 50px;
   background: #5b5bd3;
   font-size: 12px;
@@ -82,6 +84,7 @@ body {
 
 .footer a {
   color: #000;
+  align-content: center;
 }
 
 .footer1{

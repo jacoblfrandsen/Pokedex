@@ -6,13 +6,13 @@
       <img :src="item.path" />
         
     </div>
-    <form @submit.prevent="submit">
-        <input type="text" v-model="name"> 
-         <button type="submit">
-            Guess Name
-        </button>
-    </form>
-    <p style="white-space: pre-line;">{{ name }}</p>
+   
+    <div class="check">Guess Pokemon Name: <input name="pokemonname" v-model="pokemonname">
+    <button @click="check()">Check</button>
+    <p>{{ result }} </p>
+    
+    </div>
+
   </section>
 </div>
 </template>
@@ -26,7 +26,11 @@ export default {
     return {
      item: null,
      title: "",
-    name: ""
+     result: "",
+     pokemonname: "",
+    name: "",
+    i: 0,
+    
 
     }
   },
@@ -38,11 +42,23 @@ export default {
     async getItem() {
       try {
         let response = await axios.get("/api/items");
-        this.item = response.data.at(0);
+        this.item = response.data.at(this.i);
+        
         return true;
       } catch (error) {
         console.log(error);
       }
+    },
+    check() {
+        if(this.pokemonname == this.item.title)
+        {
+            this.result = "Correct";
+        }
+        else{
+            this.result = " Incorrect" + " Correct answer was: " + this.item.title;
+        }
+        this.i = this.i + 1;
+        this.getItem();
     },
     async checkName() {
       try {

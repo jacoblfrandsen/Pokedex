@@ -1,6 +1,6 @@
 <template>
 <div class="admin">
-  <h1>Add a Pokemon to guess</h1>
+  <h1>Add a Pokemon to the Pokedex</h1>
     <div class="heading">
       <div class="circle">1</div>
       <h2>Add a Pokemon you have seen </h2>
@@ -28,7 +28,7 @@
       <div class="form">
         <input v-model="findTitle" placeholder="Search">
         <div class="suggestions" v-if="suggestions.length > 0">
-          <div class="suggestion" v-for="s in suggestions" :key="s.id" @click="selectItem(s)">{{s.title}} - {{s.description}}
+          <div class="suggestion" v-for="s in suggestions" :key="s.id" @click="selectItem(s)">{{s.title}}  {{s.description}}
           </div>
         </div>
       </div>
